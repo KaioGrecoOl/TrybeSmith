@@ -1,8 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
-import registerProductService from '../services/productsService';
+import { registerProductService, 
+  getAllProductsService } from '../services/productsService';
 import { Iproducts } from '../interfaces/productsInterface';
 
-const registerProducController = async (req: Request, res: Response, next: NextFunction) => {
+export const registerProducController = async (req: Request, res: Response, next: NextFunction) => {
   try { 
     const products = req.body as Iproducts;
     const data = await registerProductService(products);
@@ -12,4 +13,11 @@ const registerProducController = async (req: Request, res: Response, next: NextF
   }
 };
 
-export default registerProducController;
+export const getAllProductsController = async (req: Request, res: Response, next: NextFunction) => {
+  try {
+    const product = await getAllProductsService();
+    return res.status(200).json(product);
+  } catch (error) {
+    next(error);
+  }
+};

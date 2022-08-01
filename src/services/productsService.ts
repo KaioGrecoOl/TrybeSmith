@@ -1,9 +1,13 @@
 import { Iproducts } from '../interfaces/productsInterface';
-import registerProductModels from '../models/productsModels';
+import { registerProductModels,
+  getAllProductsModels } from '../models/productsModels';
 
-const registerProductService = async (products: Iproducts) => {
+export const registerProductService = async (products: Iproducts) => {
   const result = await registerProductModels(products);
   return result;
 };
 
-export default registerProductService;
+export const getAllProductsService = async () => {
+  const data = await getAllProductsModels();
+  return data;
+};
