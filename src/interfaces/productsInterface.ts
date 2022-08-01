@@ -1,4 +1,6 @@
 export interface Iproducts {
-  name: string,
+  id?: number
+  name: string
   amount: string
+  orderId?: number
 }
