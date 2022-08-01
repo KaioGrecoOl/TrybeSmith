@@ -1,4 +1,4 @@
 export interface Iproducts {
   name: string,
-  amount: number
+  amount: string
 }
