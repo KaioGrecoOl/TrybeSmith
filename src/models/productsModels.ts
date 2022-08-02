@@ -5,7 +5,7 @@ import connection from './connection';
 export const registerProductModels = async (product: Iproducts) => {
   const { name, amount } = product;
   const [{ insertId }] = await connection.execute<ResultSetHeader>(
-    'INSERT INTO Trybesmith.products (name, amount) VALUES(?, ?)',
+    'INSERT INTO Trybesmith.Products (name, amount) VALUES(?, ?)',
     [name, amount],
   );
   return {
@@ -16,6 +16,6 @@ export const registerProductModels = async (product: Iproducts) => {
 };
 
 export const getAllProductsModels = async (): Promise<Iproducts> => {
-  const [data] = await connection.execute<ResultSetHeader>('SELECT * FROM Trybesmith.products');
+  const [data] = await connection.execute<ResultSetHeader>('SELECT * FROM Trybesmith.Products');
   return data as unknown as Iproducts;
 };
