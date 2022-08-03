@@ -1,7 +1,7 @@
 import jwt, { SignOptions } from 'jsonwebtoken';
-import dotenv from 'dotenv';
+// import dotenv from 'dotenv';
 
-dotenv.config();
+// dotenv.config();
 
 const options: SignOptions = {
   expiresIn: '2d',
@@ -9,7 +9,7 @@ const options: SignOptions = {
 };
 
 const createToken = (username: string) => {
-  const token = jwt.sign({ username }, process.env.MY_TOKEN_SECRET as string, options);
+  const token = jwt.sign({ username }, 'secret' as string, options);
   return token;
 };
 
