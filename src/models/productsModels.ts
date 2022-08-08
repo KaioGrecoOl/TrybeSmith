@@ -15,7 +15,7 @@ export const registerProductModels = async (product: Iproducts) => {
   };
 };
 
-export const getAllProductsModels = async (): Promise<Iproducts> => {
+export const getAllProductsModels = async (): Promise<Iproducts[]> => {
   const [data] = await connection.execute<ResultSetHeader>('SELECT * FROM Trybesmith.Products');
-  return data as unknown as Iproducts;
+  return data as unknown as Iproducts[];
 };
